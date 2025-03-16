@@ -1,7 +1,7 @@
-package taskone.library;
+package levelone.taskone.library;
 
-import taskone.book.Book;
-import taskone.book.BookEntry;
+import levelone.taskone.book.Book;
+import levelone.taskone.book.BookEntry;
 
 import java.util.*;
 
@@ -25,13 +25,6 @@ public class Library {
         }
     }
 
-    public void addBook(Book book, int position) {
-        BookEntry entry = new BookEntry(book, position);
-        if (!books.add(entry)) {
-            throw new IllegalArgumentException(
-                "Duplicate name or position already exists in the library");
-        }
-    }
 
     public Book getBook(int position) {
         Book book = null;

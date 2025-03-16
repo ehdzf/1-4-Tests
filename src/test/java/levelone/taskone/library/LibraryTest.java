@@ -1,13 +1,15 @@
-package taskone.library;
+package levelone.taskone.library;
 
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import taskone.book.Book;
-import taskone.book.BookEntry;
+import levelone.taskone.book.Book;
+import levelone.taskone.book.BookEntry;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
     private Library library;
@@ -28,20 +30,20 @@ class LibraryTest {
     @Test
     @DisplayName("Should have a list after creating a new library")
     public void checkLibraryListExists() {
-        assert library.getBooks() != null;
+        assertNotEquals(null, library.getBooks());
     }
 
     @Test
     @DisplayName("Should have an empty list after creating a new library")
     public void checkLibraryListIsEmpty() {
-        assert library.getBooks().isEmpty();
+        assertTrue(library.getBooks().isEmpty());
     }
 
     @Test
     @DisplayName("Should add any book to an empty library")
     public void addBookToEmptyLibrary() {
         addNewBookIntoLibrary("Test");
-        assert library.getBooks().size() == 1;
+        assertEquals(1, library.getBooks().size());
     }
 
     @Test
@@ -50,7 +52,7 @@ class LibraryTest {
         addNewBookIntoLibrary("Test");
         addNewBookIntoLibrary("Test2");
         addNewBookIntoLibrary("Test3");
-        assert library.getBooks().size() == 3;
+        assertEquals(3, library.getBooks().size());
 
     }
 
@@ -58,7 +60,7 @@ class LibraryTest {
     @DisplayName("Should find a book on its position")
     void shouldFindBookOnPosition() {
         final Book book = addNewBookIntoLibrary("Test");
-        assert library.getBooks().get(0).getBook().equals(book);
+        assertEquals(book, library.getBooks().get(0).getBook());
     }
 
     @Test
@@ -69,7 +71,7 @@ class LibraryTest {
         addNewBookIntoLibrary(title);
 
         List<BookEntry> books = library.getBooks().stream().filter(bookEntry -> bookEntry.getBook().getTitle().equals(title)).toList();
-        assert books.size() == 1;
+        assertEquals(1, books.size());
 
     }
 
@@ -79,7 +81,7 @@ class LibraryTest {
         addNewBookIntoLibrary("position 1");
         addNewBookIntoLibrary("position 2");
         addNewBookIntoLibrary("position 3");
-        assert library.getBook(2).getTitle().equals("position 3");
+        assertEquals("position 3", library.getBook(2).getTitle());
     }
 
     @Test
@@ -88,9 +90,9 @@ class LibraryTest {
         addNewBookIntoLibrary("Test");
         addNewBookIntoLibrary("Test2");
         addNewBookIntoLibrary("Test3");
-        assert library.getBooks().size() == 3;
+        assertEquals(3, library.getBooks().size());
         library.removeBook("Test");
-        assert library.getBooks().size() == 2;
+        assertEquals(2, library.getBooks().size());
     }
 
     @Test
@@ -108,7 +110,7 @@ class LibraryTest {
         for (int i = 0; i < books.size() - 1; i++) {
             String currentTitle = books.get(i).getBook().getTitle();
             String nextTitle = books.get(i + 1).getBook().getTitle();
-            assert currentTitle.compareToIgnoreCase(nextTitle) < 0 : currentTitle + " should come before " + nextTitle;
+            assertTrue(currentTitle.compareToIgnoreCase(nextTitle) < 0);
         }
 
     }
@@ -129,7 +131,7 @@ class LibraryTest {
         for (int i = 0; i < books.size() - 1; i++) {
             String currentTitle = books.get(i).getBook().getTitle();
             String nextTitle = books.get(i + 1).getBook().getTitle();
-            assert currentTitle.compareToIgnoreCase(nextTitle) < 0 : currentTitle + " should come before " + nextTitle;
+            assertTrue(currentTitle.compareToIgnoreCase(nextTitle) < 0);
         }
 
     }
