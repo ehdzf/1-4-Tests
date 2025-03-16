@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ComparableClassTest {
     private final String comparableObjectName = "test";
     private ComparableClass comparableObject;
+
     @BeforeEach
     void setUp() {
         comparableObject = new ComparableClass(comparableObjectName);
@@ -42,12 +43,6 @@ class ComparableClassTest {
 
     }
 
-    @Test
-    @DisplayName("Objects with the same values should not be same")
-    void taskTwoTrueCase() {
-        assertThat(comparableObject).isSameAs(comparableObject);
-
-    }
 
     @Test
     @DisplayName("Two different integer arrays can be compared as identical")
@@ -60,6 +55,7 @@ class ComparableClassTest {
 
 
     }
+
     @Test
     @DisplayName("List should store object in the order they are inserted")
     void taskFour() {
@@ -72,6 +68,7 @@ class ComparableClassTest {
 
         assertThat(comparableObject.getObjectList()).containsSequence(object1, object2, object3);
     }
+
     @Test
     @DisplayName("List should contain all inserted objects regardless of the order")
     void taskFourOne() {
@@ -84,6 +81,7 @@ class ComparableClassTest {
 
         assertThat(comparableObject.getObjectList()).containsExactlyInAnyOrder(object2, object1, object3);
     }
+
     @Test
     @DisplayName("List should contain only once any object that was inserted once, and must not contain an object that wasn't inserted")
     void taskFourTwo() {
@@ -97,6 +95,7 @@ class ComparableClassTest {
         assertThat(comparableObject.getObjectList()).containsOnlyOnce(object2);
         assertThat(comparableObject.getObjectList()).doesNotContain(object3);
     }
+
     @Test
     @DisplayName("empty optional instances should be empty")
     void ShouldBeEmptyIfOptionalInstanceWasCreatedEmpty() {

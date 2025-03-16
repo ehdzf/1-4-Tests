@@ -21,9 +21,11 @@ public class ComparableClass {
     public int[] getArray() {
         return array;
     }
+
     public ArrayList<Object> getObjectList() {
         return objectList;
     }
+
     public void insertObjectToList(Object object) {
         objectList.add(object);
     }

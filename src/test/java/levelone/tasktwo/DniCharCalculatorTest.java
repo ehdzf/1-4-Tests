@@ -44,12 +44,14 @@ class DniCharCalculatorTest {
         int largeNumber = 100000000;
         assertThrows(IllegalArgumentException.class, () -> DniCharCalculator.generateDNI(largeNumber));
     }
+
     @Test
     @DisplayName("Should throw an error if the number negative")
     public void shouldBepositiveNumber() {
         int negativeNumber = -1;
         assertThrows(IllegalArgumentException.class, () -> DniCharCalculator.generateDNI(negativeNumber));
     }
+
     @Test
     @DisplayName("Should throw an error if the number is zero")
     public void shouldNotBeZero() {

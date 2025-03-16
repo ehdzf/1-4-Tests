@@ -18,7 +18,7 @@ class ArrayErrorClassTest {
     @Test
     @DisplayName("should throw 'ArrayIndexOutOfBoundsException' if called an out of bounds index")
     public void testArrayIndexOutOfBoundsException() {
-        assertThrows(ArrayIndexOutOfBoundsException.class, ( )-> arrayErrorClass.getByIndex(testArray.length));
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> arrayErrorClass.getByIndex(testArray.length));
 
     }
 

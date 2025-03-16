@@ -14,9 +14,10 @@ public class DniCharCalculator {
     }
 
     private static boolean isNumberLargerThanEightDigits(int dniNumber) {
-        return  dniNumber <= 99999999;
+        return dniNumber <= 99999999;
     }
+
     private static boolean isNumberLargerGreaterThanZero(int dniNumber) {
-        return  dniNumber > 0;
+        return dniNumber > 0;
     }
 }

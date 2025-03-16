@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.entry;
 
 class MapClassTest {
     MapClass testSubject;
+
     @BeforeEach
     void setUp() {
         testSubject = new MapClass();

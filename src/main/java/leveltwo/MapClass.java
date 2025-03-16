@@ -5,14 +5,16 @@ import java.util.Map;
 import java.util.Objects;
 
 public class MapClass {
-    private Map<String, String> map;
-    public MapClass( ) {
+    private final Map<String, String> map;
+
+    public MapClass() {
         map = new HashMap<>();
     }
 
     public Map<String, String> getMap() {
         return map;
     }
+
     public void addToMap(String key, String value) {
         map.put(key, value);
     }
